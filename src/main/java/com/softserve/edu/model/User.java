@@ -9,10 +9,7 @@ import javax.persistence.*;
 import javax.validation.constraints.NotBlank;
 import javax.validation.constraints.Pattern;
 import javax.validation.constraints.Size;
-import java.util.Arrays;
-import java.util.Collection;
-import java.util.Collections;
-import java.util.List;
+import java.util.*;
 
 @Data
 @Entity(name="users")
@@ -49,6 +46,12 @@ public class User implements UserDetails {
 
     @OneToMany(mappedBy = "trainee")
     private List<Progress> progresses;
+
+    //?
+    @ManyToMany
+    @JoinTable(name = "user_roles", joinColumns = @JoinColumn(name = "user_id"),
+    inverseJoinColumns = @JoinColumn(name = "role_id"))
+    private Set<Role> roleSet;
 
     @Override
     public Collection<? extends GrantedAuthority> getAuthorities() {
