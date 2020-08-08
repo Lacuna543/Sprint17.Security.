@@ -14,11 +14,11 @@ public interface UserService {
 
     User createOrUpdateUser(User user);
 
-    void deleteUserById(Long id);
-
     boolean addUserToMarathon(User user, Marathon marathon);
 
     boolean deleteUserFromMarathon(User user, Marathon marathon);
+
+    void deleteUserById(Long id);
 
   //  void save(User user);
 }
