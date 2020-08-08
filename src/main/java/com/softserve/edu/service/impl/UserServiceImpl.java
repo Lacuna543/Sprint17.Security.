@@ -8,6 +8,8 @@ import com.softserve.edu.repository.MarathonRepository;
 import com.softserve.edu.repository.RoleRepository;
 import com.softserve.edu.repository.UserRepository;
 import com.softserve.edu.service.UserService;
+import org.springframework.security.core.userdetails.UserDetails;
+import org.springframework.security.core.userdetails.UsernameNotFoundException;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.stereotype.Service;
 
@@ -76,9 +78,8 @@ public class UserServiceImpl implements UserService {
         marathonEntity.getUsers().remove(userEntity);
         return marathonRepository.save(marathonEntity) != null;
     }
-//    @Override
-//    public UserDetails loadUserByUsername(String email) throws UsernameNotFoundException {
-//        return userRepository.getUserByEmail(email);
-//    }
-
+    @Override
+    public UserDetails loadUserByUsername(String email) throws UsernameNotFoundException {
+        return userRepository.getUserByEmail(email);
+    }
 }
