@@ -36,13 +36,13 @@ public class UserServiceImpl implements UserService {
         this.roleRepository = roleRepository;
     }
 
-    public void save(User user) {
-        user.setPassword(bCryptPasswordEncoder.encode(user.getPassword()));
-        Role roles = new Role();
-        //  roles.add(roleRepository.getOne(1L));
-        user.setRole(roles);
-        userRepository.save(user);
-    }
+//    public void save(User user) {
+//        user.setPassword(bCryptPasswordEncoder.encode(user.getPassword()));
+//        Role roles = new Role();
+//        //  roles.add(roleRepository.getOne(1L));
+//        user.setRole(roles);
+//        userRepository.save(user);
+//    }
 
     public List<User> getAll() {
         List<User> users = userRepository.findAll();
@@ -76,4 +76,9 @@ public class UserServiceImpl implements UserService {
         marathonEntity.getUsers().remove(userEntity);
         return marathonRepository.save(marathonEntity) != null;
     }
+//    @Override
+//    public UserDetails loadUserByUsername(String email) throws UsernameNotFoundException {
+//        return userRepository.getUserByEmail(email);
+//    }
+
 }

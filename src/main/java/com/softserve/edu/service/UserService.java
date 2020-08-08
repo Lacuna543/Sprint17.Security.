@@ -20,5 +20,5 @@ public interface UserService {
 
     boolean deleteUserFromMarathon(User user, Marathon marathon);
 
-    void save();
+  //  void save(User user);
 }
