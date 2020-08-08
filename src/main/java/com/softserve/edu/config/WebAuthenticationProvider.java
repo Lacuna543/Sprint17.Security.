@@ -1,4 +1,4 @@
-package com.softserve.edu.config.security;
+package com.softserve.edu.config;
 
 import org.springframework.security.authentication.AuthenticationProvider;
 import org.springframework.security.authentication.UsernamePasswordAuthenticationToken;

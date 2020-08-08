@@ -1,4 +1,4 @@
-package com.softserve.edu.config.security;
+package com.softserve.edu.config;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;
