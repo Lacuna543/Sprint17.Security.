@@ -1,4 +1,4 @@
-package com.softserve.edu.security;
+package com.softserve.edu.config.security;
 
 import org.springframework.security.web.context.AbstractSecurityWebApplicationInitializer;
 

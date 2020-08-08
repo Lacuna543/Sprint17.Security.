@@ -1,6 +1,6 @@
 package com.softserve.edu.config;
 
-import com.softserve.edu.security.WebSecurityConfigurer;
+import com.softserve.edu.config.security.WebSecurityConfigurer;
 import org.springframework.web.servlet.support.AbstractAnnotationConfigDispatcherServletInitializer;
 
 public class WebAppInitializer extends AbstractAnnotationConfigDispatcherServletInitializer {
