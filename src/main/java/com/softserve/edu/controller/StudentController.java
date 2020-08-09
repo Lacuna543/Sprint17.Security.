@@ -7,6 +7,7 @@ import com.softserve.edu.service.MarathonService;
 import com.softserve.edu.service.RoleService;
 import com.softserve.edu.service.UserService;
 import lombok.Data;
+import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.validation.BindingResult;
@@ -22,11 +23,13 @@ public class StudentController {
     private UserService studentService;
     private RoleService roleService;
     private MarathonService marathonService;
+    private PasswordEncoder passwordEncoder;
 
-    public StudentController(UserService studentService, RoleService roleService, MarathonService marathonService) {
+    public StudentController(UserService studentService, RoleService roleService, MarathonService marathonService, PasswordEncoder passwordEncoder) {
         this.studentService = studentService;
         this.roleService = roleService;
         this.marathonService = marathonService;
+        this.passwordEncoder = passwordEncoder;
     }
 
     @GetMapping("/create-student")
@@ -44,6 +47,7 @@ public class StudentController {
             return "create-student";
         }
         user.setRole(roleService.getRoleById(roleId));
+        user.setPassword(passwordEncoder.encode(user.getPassword()));
         studentService.addUserToMarathon(
                 studentService.createOrUpdateUser(user),
                 marathonService.getMarathonById(marathonId));
@@ -74,6 +78,7 @@ public class StudentController {
             return "update-marathon";
         }
         user.setRole(roleService.getRoleById(roleId));
+        user.setPassword(passwordEncoder.encode(user.getPassword()));
         studentService.createOrUpdateUser(user);
         return "redirect:/students/" + marathonId;
     }
@@ -109,6 +114,7 @@ public class StudentController {
             return "update-marathon";
         }
         user.setRole(roleService.getRoleById(roleId));
+        user.setPassword(passwordEncoder.encode(user.getPassword()));
         studentService.createOrUpdateUser(user);
         return "redirect:/students";
     }
