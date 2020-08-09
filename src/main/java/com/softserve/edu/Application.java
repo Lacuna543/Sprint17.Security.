@@ -15,13 +15,15 @@ public class Application implements CommandLineRunner {
 	private final SprintService sprintService;
 	private final TaskService taskService;
 	private final ProgressService progressService;
+	private final RoleService roleService;
 
-	public Application(UserService userService, MarathonService marathonService, SprintService sprintService, TaskService taskService, ProgressService progressService) {
+	public Application(UserService userService, MarathonService marathonService, SprintService sprintService, TaskService taskService, ProgressService progressService, RoleService roleService) {
 		this.userService = userService;
 		this.marathonService = marathonService;
 		this.sprintService = sprintService;
 		this.taskService = taskService;
 		this.progressService = progressService;
+		this.roleService = roleService;
 	}
 
 	public static void main(String[] args) {

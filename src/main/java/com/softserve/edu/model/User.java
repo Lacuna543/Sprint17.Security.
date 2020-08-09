@@ -54,11 +54,6 @@ public class User implements UserDetails {
 //    private Set<Role> roleSet;
 
     @Override
-    public Collection<? extends GrantedAuthority> getAuthorities() {
-        return Collections.singletonList(role);
-    }
-
-    @Override
     public String getUsername() {
         return email;
     }
@@ -82,4 +77,10 @@ public class User implements UserDetails {
     public boolean isEnabled() {
         return true;
     }
+
+    @Override
+    public Collection<? extends GrantedAuthority> getAuthorities() {
+        return Collections.singletonList(role);
+    }
+
 }
