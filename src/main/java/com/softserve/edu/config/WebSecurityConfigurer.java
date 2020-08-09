@@ -21,8 +21,8 @@ import org.springframework.security.crypto.password.PasswordEncoder;
         prePostEnabled = true)
 public class WebSecurityConfigurer extends WebSecurityConfigurerAdapter {
 
-    private final String USER = "USER";
-    private final String MENTOR = "ADMIN";
+    private final String USER = "TRAINEE";
+    private final String MENTOR = "MENTOR";
 
     private WebApplicationProvider webApplicationProvider;
     private UserService userService;

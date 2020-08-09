@@ -16,4 +16,6 @@ public interface UserService extends UserDetailsService {
     boolean addUserToMarathon(User user, Marathon marathon);
     boolean deleteUserFromMarathon(User user, Marathon marathon);
     //void save(User user){}
+
+
 }

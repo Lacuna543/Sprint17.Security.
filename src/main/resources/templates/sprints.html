@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html xmlns:th="http://www.thymeleaf.org" lang="en">
+<html xmlns:th="http://www.thymeleaf.org" xmlns:sec="http://www.w3.org/1999/xhtml" lang="en">
 <head>
     <meta charset="UTF-8">
     <title>List of Sprints</title>
@@ -7,7 +7,7 @@
 <body>
 <div th:replace="header"></div>
 <h2>List of Sprints</h2>
-<form th:action="@{/create-sprint/{marathon_id}(marathon_id=${marathon_id})}" method="get">
+<form sec:authorize="hasRole('ROLE_MENTOR')" th:action="@{/create-sprint/{marathon_id}(marathon_id=${marathon_id})}" method="get">
     <input type="submit" value="Create Sprint">
 </form>
 <br>
@@ -27,6 +27,7 @@
         <td th:text="${sprint.startDate}" />
         <td th:text="${sprint.endDate}" />
         <td >
+
             <a href="#">Edit</a>
         </td>
         <td>

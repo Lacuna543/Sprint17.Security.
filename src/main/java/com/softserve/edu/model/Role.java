@@ -18,7 +18,8 @@ public class Role implements GrantedAuthority {
     private Long id;
 
     @NotBlank
-    private String authority;
+    @Column(name = "name")
+    private String name;
 
 //    //?
 //    @ManyToMany(mappedBy = "roles")
@@ -26,6 +27,6 @@ public class Role implements GrantedAuthority {
 
     @Override
     public String getAuthority() {
-        return authority;
+        return name;
     }
 }

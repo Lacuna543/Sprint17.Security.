@@ -9,7 +9,7 @@
 <div th:replace="header"></div>
 <h2>List of Marathons</h2>
 <br>
-<h4 sec:authorize="hasRole('ROLE_ADMIN')">
+<h4 sec:authorize="hasRole('ROLE_MENTOR')">
     <form action="#" th:action="@{/create-marathon}" method="get">
         <input type="submit" value="Create Marathon">
     </form>
@@ -22,25 +22,25 @@
         <th>No.</th>
         <th>Id</th>
         <th>Title</th>
-        <th sec:authorize="hasRole('ROLE_ADMIN')" colspan="2">Operations</th>
-        <th sec:authorize="hasRole('ROLE_ADMIN')">Sprints</th>
+        <th sec:authorize="hasRole('ROLE_MENTOR')" colspan="2">Operations</th>
+        <th sec:authorize="hasRole('ROLE_MENTOR')">Sprints</th>
     </tr>
     <tr th:each="marathon, iStat: ${marathons}">
         <td th:text="${iStat.index + 1}" />
         <td th:text="${marathon.id}" />
-        <td sec:authorize="hasRole('ROLE_ADMIN')">
+        <td sec:authorize="hasRole('ROLE_MENTOR')">
             <a th:href="@{|/students/${marathon.id}|}" th:text="${marathon.title}" />
         </td>
-        <td sec:authorize="hasRole('ROLE_USER')">
+        <td sec:authorize="hasRole('ROLE_TRAINEE')">
             <a th:href="@{/sprints/{marathon_id}(marathon_id=${marathon.id})}" th:text="${marathon.title}" />
         </td>
-        <td sec:authorize="hasRole('ROLE_ADMIN')">
+        <td sec:authorize="hasRole('ROLE_MENTOR')">
             <a th:href="@{|/marathons/edit/${marathon.id}|}">Edit</a>
         </td>
-        <td sec:authorize="hasRole('ROLE_ADMIN')">
+        <td sec:authorize="hasRole('ROLE_MENTOR')">
             <a th:href="@{|/marathons/delete/${marathon.id}|}">Close</a>
         </td>
-        <td sec:authorize="hasRole('ROLE_ADMIN')">
+        <td sec:authorize="hasRole('ROLE_MENTOR')">
             <form th:action="@{/sprints/{marathon_id}(marathon_id=${marathon.id})}">
                 <input type="submit" value="List of Sprints">
             </form>
